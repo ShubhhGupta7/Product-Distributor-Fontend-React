@@ -16,6 +16,7 @@ function Product(props) {
   const deleteProductHelper = () => {
     deleteProduct(props.productId);
     toast.success('Product Deleted!');
+    props.setProductDeleted(props.productDeleted + 1);
   };
 
   
