@@ -1,21 +1,33 @@
 import { Routes, Route } from "react-router-dom";
-import Login from "./components/authentication/Login";
-import Register from "./components/authentication/Register";
-import Products from "./components/Product/Products";
-import Destributors from "./components/Destributer/Destributors";
+import Login from "./pages/authentication/Login";
+import Register from "./pages/authentication/Register";
+import ProductList from "./pages/ProductList";
+import DistributorList from "./pages/DistributorList";
+import Cart from "./components/Cart";
+import AddProductPage from './pages/AddProductPage';
+import UpdateProductPage from "./pages/UpdateProductPage";
 
-import AddProduct from './components/DestributionManager/AddProduct';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import PrivateRoute from "./components/PrivateRoute";
+
 function App() {
   return (
-    <Routes>
-      <Route path="/login" exact element={<Login />} />
-      <Route path="/register" exact element={<Register />} />
+    <main>
+      <ToastContainer position="bottom-center" />
+      <Routes>
+        <Route path="/login" exact element={<Login />} />
+        <Route path="/register" exact element={<Register />} />
 
-      <Route path="/manager/add-product"exact element={<AddProduct/>} />
-
-      <Route path="/products" exact element={<Products/>} />
-      <Route path="/destributors" exact element={<Destributors/>} />
-    </Routes>
+        <Route path="/user" element={<PrivateRoute />}>
+          <Route path="products" element={<ProductList />} />
+          <Route path="destributors" element={<DistributorList />} />
+          <Route path="cart" element={<Cart />} />
+          <Route path="add-product" element={<AddProductPage />} />
+          <Route path="update-product/:productId" element={<UpdateProductPage/>} />
+        </Route>
+      </Routes>
+    </main>
   );
 }
 

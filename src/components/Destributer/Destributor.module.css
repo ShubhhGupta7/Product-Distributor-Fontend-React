@@ -1,0 +1,17 @@
+.width {
+    width: 400px;
+    height: 150px;
+}
+
+.card {
+    /* background-image: linear-gradient(to right, #eee5f1, #f6f1e2); */
+    background-image: linear-gradient(to bottom right, #f5fffe, #defaf7);
+    margin: 10px;
+    padding: 5px;
+    border: 3px solid darkblue;
+} 
+
+.contactContainer {
+    background-color: whitesmoke;
+    padding: 10px;
+}

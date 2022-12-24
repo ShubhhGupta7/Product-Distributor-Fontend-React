@@ -1,35 +1,24 @@
 import Product from "./Product";
+import classes from "./Products.module.css";
 
-const products = [
-  {
-    productName: "Shubh",
-    productPrice: "10000000000",
-    productDescription: "Developer",
-  },
-  {
-    productName: "Shubh Gupta",
-    productPrice: "10000000000",
-    productDescription: "CEO, Product Manager",
-  },
-  {
-    productName: "DevGupta",
-    productPrice: "10000000000",
-    productDescription: "Enterprenuer",
-  },
-];
+import { getProducts } from "../../store";
+const products = getProducts();
 
 function Products() {
   return (
-    <div>
-      <h1>This is the list of Products</h1>
-      <ul>
-        {products.map((product) => {
-          return <Product key={product.productName} productName={product.productName}
-          productPrice={product.productPrice}
-          productDescription={product.productDescription} />;
-        })}
-      </ul>
-    </div>
+    <ul className={`d-flex justify-content-around flex-wrap ${classes.list}`}>
+      {products.map((product) => {
+        return (
+          <Product
+            key={product.productId}
+            productName={product.productName}
+            productPrice={product.productPrice}
+            productDescription={product.productDescription}
+            productId = {product.productId}
+          />
+        );
+      })}
+    </ul>
   );
 }
 
