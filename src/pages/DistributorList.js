@@ -1,9 +1,9 @@
-import Distributors from "../components/Destributer/Destributors";
+import Distributors from "../components/Distributor/Distributors";
 import NavBar from "../components/NavBar";
 function DistributorList() {
   return (
     <section>
-       <NavBar />
+      <NavBar />
       <Distributors />
     </section>
   );

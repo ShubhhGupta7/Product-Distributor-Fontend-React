@@ -8,18 +8,17 @@ import { toast } from "react-toastify";
 function Product(props) {
   const navigate = useNavigate();
 
+  // Navigation Handler for Updating Product
   const updateProduct = () => {
-    console.log(props.productId);
+    // console.log(props.productId);
     navigate(`/user/update-product/${props.productId}`);
   };
 
   const deleteProductHelper = () => {
     deleteProduct(props.productId);
-    toast.success('Product Deleted!');
+    toast.success("Product Deleted!");
     props.setProductDeleted(props.productDeleted + 1);
   };
-
-  
 
   return (
     <li className={`card ${classes.width} ${classes.card}`}>
@@ -34,11 +33,12 @@ function Product(props) {
           </p>
         </strong>
 
+        {/* Update and Delete Buttons */}
         {isAdmin() && (
           <div>
             <button className={classes.updateButton} onClick={updateProduct}>
               Update
-            </button> 
+            </button>
             <button
               className={classes.deleteButton}
               onClick={deleteProductHelper}
@@ -48,7 +48,8 @@ function Product(props) {
           </div>
         )}
 
-        {!isAdmin() && <CartInput productId = {props.productId}/>}
+        {/* Add to Cart Component */}
+        {!isAdmin() && <CartInput productId={props.productId} />}
       </div>
     </li>
   );

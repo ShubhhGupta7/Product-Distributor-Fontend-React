@@ -1,67 +1,67 @@
 body {
-    font-size: 18px;
+  font-size: 18px;
 }
 .container {
-    height: 125vh;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items:  center;
-    background-image: linear-gradient(to bottom right, #ff3b00, #5252c4);
- }
+  height: 125vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to bottom right, #ff3b00, #5252c4);
+}
 .logo {
-    margin-bottom: 50px;
-    font-family: cursive;
+  margin-bottom: 50px;
+  font-family: cursive;
 }
 .form {
-    display: inline-block;
-    padding: 50px 50px;
-    background-color: #b7abe3;  
-    border-radius: 16px;
+  display: inline-block;
+  padding: 50px 50px;
+  background-color: #b7abe3;
+  border-radius: 16px;
 }
 label {
-    display: inline-block;
-    font-weight: bold;
+  display: inline-block;
+  font-weight: bold;
 }
 .labelWidth {
-    width: 180px;
+  width: 180px;
 }
 .inputContainer {
-    margin: 30px 20px;
-    display: flex;
-    align-items: center;
+  margin: 30px 20px;
+  display: flex;
+  align-items: center;
 }
 button {
-    padding: 5px 160px;
-    border: none;
-    margin: 5px 20px;
-    border-radius: 4px;
-    font-weight: bold;
-    background-color: #6060ff;
-    color: white;
+  padding: 5px 160px;
+  border: none;
+  margin: 5px 20px;
+  border-radius: 4px;
+  font-weight: bold;
+  background-color: #6060ff;
+  color: white;
 }
 input {
-    background-color: whitesmoke;
-    border: none;
-    padding: 5px;
-    border-radius: 4px;
+  background-color: whitesmoke;
+  border: none;
+  padding: 5px;
+  border-radius: 4px;
 }
 input:focus {
-    outline:none;
-    border-bottom: 3px solid #6060ff;
+  outline: none;
+  border-bottom: 3px solid #6060ff;
 }
 .reset {
-    padding: 5px 172px;
+  padding: 5px 172px;
 }
 button:hover {
-    background-color: darkorchid;
-    color:whitesmoke;
-    box-shadow: 0px 0px 16px 1px white;
+  background-color: darkorchid;
+  color: whitesmoke;
+  box-shadow: 0px 0px 16px 1px white;
 }
 .textarea {
-    padding: 0px 13px 0px 13px;
+  padding: 0px 13px 0px 13px;
 }
 .addButton {
-    display: inline-block;
-    width: 400px;
+  display: inline-block;
+  width: 400px;
 }

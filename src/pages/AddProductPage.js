@@ -1,9 +1,11 @@
-import AddProduct from '../components/Product/AddProduct';
+import AddProduct from "../components/Product/AddProduct";
 
 function AddProductPage() {
-    return <>
-        <AddProduct />
+  return (
+    <>
+      <AddProduct />
     </>
+  );
 }
 
 export default AddProductPage;

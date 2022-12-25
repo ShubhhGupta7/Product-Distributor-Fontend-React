@@ -4,12 +4,15 @@ import { updateProduct, getProduct } from "../../store";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
+// Refs
 const productNameInputHandler = createRef();
 const productPriceInputHandler = createRef();
 const productDescriptionInputHandler = createRef();
 
 function UpdateProduct(props) {
+  // for navigation
   const navigate = useNavigate();
+
   function updateInputFormHandler(event) {
     event.preventDefault();
 
@@ -25,7 +28,7 @@ function UpdateProduct(props) {
     };
     updateProduct(productInformation, props.productId);
     // console.log(productInformation);
-    toast.success('Product Updated!');
+    toast.success("Product Updated!");
     navigate("/user/products");
   }
 
@@ -36,13 +39,21 @@ function UpdateProduct(props) {
         <center>
           <h1 className={classes.logo}> Update Product</h1>
         </center>
+
+        {/* Update Name Input */}
         <div className={classes.inputContainer}>
           <label className={classes.labelWidth} htmlFor="productName">
             Product Name
           </label>
-          <input type="text" id="productName" ref={productNameInputHandler} defaultValue= {product.productName}/>
+          <input
+            type="text"
+            id="productName"
+            ref={productNameInputHandler}
+            defaultValue={product.productName}
+          />
         </div>
 
+        {/* Update Product Price */}
         <div className={classes.inputContainer}>
           <label className={classes.labelWidth} htmlFor="productPrice">
             Product Price
@@ -51,9 +62,11 @@ function UpdateProduct(props) {
             type="number"
             id="productPrice"
             ref={productPriceInputHandler}
-            defaultValue = {product.productPrice}
+            defaultValue={product.productPrice}
           />
         </div>
+
+        {/* Update Product Description */}
         <div className={classes.inputContainer}>
           <label className={classes.labelWidth} htmlFor="productDescription">
             Product Description
@@ -62,9 +75,10 @@ function UpdateProduct(props) {
             id="productDescription"
             ref={productDescriptionInputHandler}
             className={classes.textarea}
-            defaultValue= {product.productDescription}
+            defaultValue={product.productDescription}
           />
         </div>
+
         <button className={classes.updateButton}>Update</button>
       </form>
     </div>

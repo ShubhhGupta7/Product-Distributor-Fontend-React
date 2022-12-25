@@ -15,21 +15,22 @@ tr {
   justify-content: space-around;
   align-items: center;
 }
-td, th {
-    width: 110px;
+td,
+th {
+  width: 110px;
 }
 .productName {
-    width: 250px;
+  width: 250px;
 }
 th {
-    color: red;
+  color: red;
 }
 
 tr:nth-child(2n) {
-    background-color: #3f719247;
-    color: black;
+  background-color: #3f719247;
+  color: black;
 }
 tr:nth-child(2n + 1) {
-    background-color: #0e2c40;
-    color:whitesmoke;
+  background-color: #0e2c40;
+  color: whitesmoke;
 }

@@ -119,9 +119,14 @@ function Login() {
           >
             Reset
           </button>
-          
+
           {/* To Register */}
-          <div className={classes.registerPage}><h6>Want to Register as Distributor?<Link to="/register"> Register</Link></h6></div>
+          <div className={classes.registerPage}>
+            <h6>
+              Want to Register as Distributor?
+              <Link to="/register"> Register</Link>
+            </h6>
+          </div>
         </div>
       </form>
     </div>

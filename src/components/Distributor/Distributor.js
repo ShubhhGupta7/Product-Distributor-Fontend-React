@@ -1,6 +1,6 @@
-import classes from "./Destributor.module.css";
+import classes from "./Distributor.module.css";
 
-function Product(props) {
+function Distributor(props) {
   return (
     <li className={`card ${classes.width} ${classes.card}`}>
       <div className="card-body">
@@ -20,4 +20,4 @@ function Product(props) {
   );
 }
 
-export default Product;
+export default Distributor;

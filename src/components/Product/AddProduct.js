@@ -4,6 +4,7 @@ import { addProduct } from "../../store";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
+// Using refs
 const productNameInputHandler = createRef();
 const productPriceInputHandler = createRef();
 const productDescriptionInputHandler = createRef();
@@ -25,41 +26,50 @@ function AddProduct() {
     };
     addProduct(productInformation);
     // console.log(productInformation);
-    toast.success('Product Added Succcessfully!');
-    navigate('/user/products');
+    toast.success("Product Added Succcessfully!");
+    navigate("/user/products");
   }
 
   return (
     <div className={classes.container}>
-    <form className={classes.form} onSubmit={addProductInputFormHandler}>
-    <center>
+      <form className={classes.form} onSubmit={addProductInputFormHandler}>
+        <center>
           <h1 className={classes.logo}> Add Product</h1>
         </center>
-      <div className={classes.inputContainer}>
-        <label className={classes.labelWidth} htmlFor="productName">
-          Product Name
-        </label>
-        <input type="text" id="productName" ref={productNameInputHandler} />
-      </div>
 
-      <div className={classes.inputContainer}>
-        <label className={classes.labelWidth} htmlFor="productPrice">
-          Product Price
-        </label>
-        <input type="number" id="productPrice" ref={productPriceInputHandler} />
-      </div>
-      <div className={classes.inputContainer}>
-        <label className={classes.labelWidth} htmlFor="productDescription">
-          Product Description
-        </label>
-        <textarea
-          id="productDescription"
-          ref={productDescriptionInputHandler}
-          className ={classes.textarea}
-        />
-      </div>
-      <button className={classes.addButton}>Add</button>
-    </form>
+        {/* Product Name Input */}
+        <div className={classes.inputContainer}>
+          <label className={classes.labelWidth} htmlFor="productName">
+            Product Name
+          </label>
+          <input type="text" id="productName" ref={productNameInputHandler} />
+        </div>
+
+        {/* Product Price Input */}
+        <div className={classes.inputContainer}>
+          <label className={classes.labelWidth} htmlFor="productPrice">
+            Product Price
+          </label>
+          <input
+            type="number"
+            id="productPrice"
+            ref={productPriceInputHandler}
+          />
+        </div>
+
+        {/* Product Description Input */}
+        <div className={classes.inputContainer}>
+          <label className={classes.labelWidth} htmlFor="productDescription">
+            Product Description
+          </label>
+          <textarea
+            id="productDescription"
+            ref={productDescriptionInputHandler}
+            className={classes.textarea}
+          />
+        </div>
+        <button className={classes.addButton}>Add</button>
+      </form>
     </div>
   );
 }

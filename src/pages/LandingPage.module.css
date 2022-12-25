@@ -1,0 +1,48 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 125vh;
+  background-color: black;
+}
+
+.brandName {
+  height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  font-size: 6vw;
+  font-family: cursive;
+  color: #cc86ff;
+  transition: all 0.5s;
+  box-shadow: 0px 0px 100px 10px #cc86ff;
+}
+.brandName:hover {
+  font-size: 8vw;
+  color: #6060ff;
+  text-shadow: 0.1vw 0.1vw #b7abe3;
+  box-shadow: 0px 0px 600px 100px #6060ff;
+}
+.linkContainer {
+  color: whitesmoke;
+  height: 50vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+.linkContainer div {
+  min-width: 500px;
+}
+.link {
+  text-decoration: none;
+  transition: all 0.5s;
+  font-size: 2rem;
+  color: #b7abe3;
+}
+.link:hover {
+  color: #6060ff;
+  text-shadow: 0.1vw 0.1vw #b7abe3;
+  font-size: 4rem;
+}

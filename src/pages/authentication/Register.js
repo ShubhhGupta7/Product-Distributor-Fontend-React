@@ -4,7 +4,7 @@ import { signup } from "../../Services/user-services";
 import { toast } from "react-toastify";
 import Login from "./Login";
 import { useNavigate } from "react-router-dom";
-import {addDistributor} from '../../store';
+import { addDistributor } from "../../store";
 
 // Creating ref Objects for data excess and change
 const nameInputHandler = createRef();
@@ -57,9 +57,9 @@ function Register() {
       password: enteredPassword,
     };
     setRegisteration(registerationData);
-    
+
     toast.success("Registered Successfully!");
-    navigate('/login');
+    navigate("/login");
 
     // console.log(registerationData);
     // This is just for frontend will be removed as we include backend

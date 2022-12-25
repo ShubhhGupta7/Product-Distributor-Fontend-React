@@ -1,64 +1,66 @@
 body {
-    font-size: 18px;
+  font-size: 18px;
 }
 .logo {
-    margin-bottom: 50px;
-    font-family: cursive;
+  margin-bottom: 50px;
+  font-family: cursive;
 }
 .container {
-   height: 125vh;
-   margin: 0;
-   display: flex;
-   justify-content: center;
-   align-items:  center;
-   background-image: linear-gradient(to bottom right, #ff3b00, #5252c4);
+  height: 125vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to bottom right, #ff3b00, #5252c4);
 }
 .form {
-    display: inline-block;
-    padding: 100px 50px;
-    background-color: #b7abe3;  
-    border-radius: 16px;
+  display: inline-block;
+  padding: 100px 50px;
+  background-color: #b7abe3;
+  border-radius: 16px;
 }
 label {
-    display: inline-block;
-    width: 100px;
-    font-weight: bold;
+  display: inline-block;
+  width: 100px;
+  font-weight: bold;
 }
 .labelWidth {
-    width: 150px;
+  width: 150px;
 }
 .inputContainer {
-    margin: 20px;
-    display: flex;
-    align-items: center;
+  margin: 20px;
+  display: flex;
+  align-items: center;
 }
 button {
-    padding: 5px 160px;
-    margin: 5px 20px;
-    border: none;
-    border-radius: 4px;
-    font-weight: bold;
-    background-color: #6060ff;
-    color: white;
+  padding: 5px 160px;
+  margin: 5px 20px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  background-color: #6060ff;
+  color: white;
 }
-input, textarea {
-    background-color: whitesmoke;
-    border: none;
-    padding: 5px;
-    border-radius: 4px;
+input,
+textarea {
+  background-color: whitesmoke;
+  border: none;
+  padding: 5px;
+  border-radius: 4px;
 }
-input:focus, textarea:focus {
-    outline:none;
-    border-bottom: 3px solid #6060ff;
+input:focus,
+textarea:focus {
+  outline: none;
+  border-bottom: 3px solid #6060ff;
 }
 .reset {
-    padding: 5px 161px;
+  padding: 5px 161px;
 }
 button:hover {
-    background-color: darkorchid;
-    color:whitesmoke;
-    box-shadow: 0px 0px 16px 1px white;
+  background-color: darkorchid;
+  color: whitesmoke;
+  box-shadow: 0px 0px 16px 1px white;
 }
 .registerPage {
-    margin: 5px 20px 0px 20px;
+  margin: 5px 20px 0px 20px;
 }

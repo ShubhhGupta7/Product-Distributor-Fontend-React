@@ -5,6 +5,7 @@ import { useState } from "react";
 const products = getProducts();
 
 function Products() {
+  // State for Updating Products Everytime a Product Got's Deleted
   const [productDeleted, setProductDeleted] = useState(0);
 
   return (
@@ -16,9 +17,9 @@ function Products() {
             productName={product.productName}
             productPrice={product.productPrice}
             productDescription={product.productDescription}
-            productId = {product.productId}
-            setProductDeleted = {setProductDeleted}
-            productDeleted = {productDeleted}
+            productId={product.productId}
+            setProductDeleted={setProductDeleted}
+            productDeleted={productDeleted}
           />
         );
       })}
