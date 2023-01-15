@@ -3,9 +3,10 @@ import classes from "./Distributors.module.css";
 
 // Temprorary Code for storing data will be removed once integrated with backend
 import { getDistributors } from "../../store";
-const distributors = getDistributors();
 
 function Distributors() {
+  const distributors = getDistributors();
+
   return (
     <ul className={`d-flex justify-content-around flex-wrap ${classes.list}`}>
       {distributors.map((distributor) => {

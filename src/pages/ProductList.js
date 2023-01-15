@@ -1,6 +1,5 @@
 import Products from "../components/Product/Products";
-import classes from "./ProductList.module.css";
-import NavBar from "../components/NavBar";
+import NavBar from "../components/UI/NavBar";
 
 function ProductList() {
   return (

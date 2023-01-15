@@ -1,10 +1,9 @@
-import { createRef, useState } from "react";
+import { createRef, useState, useEffect } from "react";
 import classes from "./Register.module.css";
-import { signup } from "../../Services/user-services";
 import { toast } from "react-toastify";
-import Login from "./Login";
 import { useNavigate } from "react-router-dom";
 import { addDistributor } from "../../store";
+import { isLoggedIn } from "../../auth";
 
 // Creating ref Objects for data excess and change
 const nameInputHandler = createRef();
@@ -26,6 +25,10 @@ function Register() {
   };
   const [registeration, setRegisteration] = useState(defaultState);
 
+  useEffect(() => {
+    if (isLoggedIn()) navigate("/user/products");
+  }, []);
+
   // Registeration Form Submission Handler
   function registerInputFormHandler(event) {
     // Preventing default form submission to server side
@@ -39,13 +42,25 @@ function Register() {
     const enteredConfirmPassword = confirmPasswordInputHandler.current.value;
 
     // Data Validation and Error Handling
-    if (enteredContact.length !== 10) {
+    if (enteredName.length < 3) {
+      toast.error("Length of Name should be greater than 3!");
+      return;
+    } else if (
+      !enteredEmail.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)
+    ) {
+      toast.error("Invalid Email!");
+      return;
+    } else if (
+      enteredContact.length !== 10 ||
+      !enteredContact.match(/^[0-9]+$/)
+    ) {
       toast.error("Please Enter a valid contact number");
-      console.log("Please Enter a valid contact number");
+      return;
+    } else if (enteredPassword.length < 8) {
+      toast.error("Password Should be atleast 8 characters long!");
       return;
     } else if (enteredPassword !== enteredConfirmPassword) {
       toast.error("Password Mismatch");
-      console.log("Password Mismatch");
       return;
     }
 
@@ -97,19 +112,22 @@ function Register() {
     <div className={classes.container}>
       <form className={classes.form} onSubmit={registerInputFormHandler}>
         <center>
-          <h1 className={classes.logo}> &anjeevni</h1>
+          <h1 className={classes.logo}> SignUp</h1>
         </center>
 
         {/* Name Input  */}
         <div className={classes.inputContainer}>
-          <label className={classes.labelWidth} htmlFor="name">
+          <label
+            className={`${classes.labelWidth} ${classes.label}`}
+            htmlFor="name"
+          >
             Name
           </label>
           <input
             type="text"
             id="name"
+            className={classes.input}
             ref={nameInputHandler}
-            minLength="4"
             placeholder="Name"
             required
           />
@@ -117,44 +135,53 @@ function Register() {
 
         {/* Email Input  */}
         <div className={classes.inputContainer}>
-          <label className={classes.labelWidth} htmlFor="email">
+          <label
+            className={`${classes.labelWidth} ${classes.label}`}
+            htmlFor="email"
+          >
             Email
           </label>
           <input
-            type="email"
+            type="text"
             id="email"
+            className={classes.input}
             ref={emailInputHandler}
             placeholder="Email"
-            minLength={10}
             required
           />
         </div>
 
         {/* Contact Input  */}
         <div className={classes.inputContainer}>
-          <label className={classes.labelWidth} htmlFor="contact">
+          <label
+            className={`${classes.labelWidth} ${classes.label}`}
+            htmlFor="contact"
+          >
             Contact No.
           </label>
           <input
             type="text"
             id="contact"
+            className={classes.input}
             ref={contactInputHandler}
             placeholder="Contact No."
             required
-            minLength={10}
           />
         </div>
 
         {/* Password Input  */}
         <div className={classes.inputContainer}>
-          <label className={classes.labelWidth} htmlFor="password">
+          <label
+            className={`${classes.labelWidth} ${classes.label}`}
+            htmlFor="password"
+          >
             Password
           </label>
           <input
             type="password"
             id="password"
+            className={classes.input}
             ref={passwordInputHandler}
-            minLength="8"
             placeholder="Password"
             required
           />
@@ -162,32 +189,43 @@ function Register() {
 
         {/* Confirm Password Input */}
         <div className={classes.inputContainer}>
-          <label className={classes.labelWidth} htmlFor="confirmPassword">
+          <label
+            className={`${classes.labelWidth} ${classes.label}`}
+            htmlFor="confirmPassword"
+          >
             Confirm Password
           </label>
           <input
             type="password"
             id="confirmPassword"
+            className={classes.input}
             ref={confirmPasswordInputHandler}
-            minLength="8"
             placeholder="Confirm Password"
             required
           />
         </div>
 
         {/* Buttons for Submission and Reset */}
-        <div>
-          <button>Register</button>
-        </div>
-        <div>
+        <div className={classes.actionContainer}>
+          <button className={classes.button}>Register</button>
           <button
-            className={classes.reset}
+            className={classes.button}
             type="button"
             onClick={resetFormHandler}
           >
             Reset
           </button>
         </div>
+
+        <button
+          type="button"
+          className={classes.cancel}
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          X
+        </button>
       </form>
     </div>
   );

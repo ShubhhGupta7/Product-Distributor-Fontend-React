@@ -1,4 +1,4 @@
-import { addToCart } from "../store";
+import { addToCart } from "../../store";
 import classes from "./CartInput.module.css";
 import { toast } from "react-toastify";
 
@@ -25,7 +25,7 @@ function CartInput(props) {
 
   return (
     <>
-      <form onSubmit={addItemToCartHandler}>
+      <form onSubmit={addItemToCartHandler} className= {classes.cartInputContainer}>
         {/* Input Quantity */}
         <input
           id="quantity"
@@ -35,7 +35,9 @@ function CartInput(props) {
           required
           placeholder="No. of Boxes"
         />
-        <button className={classes.addButton}>Add</button>
+        <button className={` ${classes.button} btn btn-light btn-lg`}>
+          Add to Cart
+        </button>
       </form>
     </>
   );

@@ -1,7 +1,12 @@
 import classes from "./NavBar.module.css";
-import { Link, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { doLogout, getCurrentUserDetail, isLoggedIn, isAdmin } from "../auth";
+import {
+  doLogout,
+  getCurrentUserDetail,
+  isLoggedIn,
+  isAdmin,
+} from "../../auth";
 import { toast } from "react-toastify";
 
 function NavBar() {
@@ -26,9 +31,11 @@ function NavBar() {
   };
 
   return (
-    <nav className={`navbar navbar-expand-lg navbar-dark bg-dark`}>
+    <nav
+      className={`navbar navbar-expand-lg navbar-dark bg-dark justify-content-between`}
+    >
       <a className="navbar-brand" href="#">
-        <h3 className={classes.logo}> &anjeevni</h3>
+        <h3 className={classes.logo}> Sanjeevni</h3>
       </a>
       <button
         className="navbar-toggler"
@@ -43,26 +50,29 @@ function NavBar() {
       </button>
 
       {/* Products will be showed to all the users */}
-      <div className="collapse navbar-collapse" id="navbarNav">
-        <ul className="navbar-nav">
+      <div
+        className="collapse navbar-collapse justify-content-between"
+        id="navbarNav"
+      >
+        <ul className="navbar-nav mr-auto">
           <li className="nav-item">
-            <Link className="nav-link" to="/user/products">
+            <NavLink className="nav-link" to="/user/products">
               Products
-            </Link>
+            </NavLink>
           </li>
 
           {/* Only Admin can see Distributor List and CRUD Functionality of Products */}
           {isAdmin() && (
             <>
               <li className="nav-item">
-                <Link className="nav-link" to="/user/distributors">
+                <NavLink className="nav-link" to="/user/distributors">
                   Distributors
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/user/add-product">
+                <NavLink className="nav-link" to="/user/add-product">
                   Add Product
-                </Link>
+                </NavLink>
               </li>
             </>
           )}
@@ -70,34 +80,24 @@ function NavBar() {
           {/* Only Distributor can see the Cart for adding Items */}
           {!isAdmin() && (
             <li className="nav-item">
-              <Link className="nav-link" to="/user/Cart">
+              <NavLink className="nav-link" to="/user/Cart">
                 MyCart
-              </Link>
+              </NavLink>
             </li>
           )}
+        </ul>
 
-          {/* Login, Signup and Logout according to user state */}
-          {!login && (
-            <>
-              <li className="nav-item">
-                <Link className="nav-link" to="/login">
-                  Login
-                </Link>
-              </li>
-
-              <li className="nav-item">
-                <Link className="nav-link" to="/register">
-                  Signup
-                </Link>
-              </li>
-            </>
-          )}
-
+        {/* Login, Signup and Logout according to user state */}
+        <ul className="navbar-nav" style={{ marginRight: "5rem" }}>
           {login && (
             <li className="nav-item">
-              <Link className="nav-link" onClick={logout} to="/login">
+              <NavLink
+                className=" btn btn-outline-light"
+                onClick={logout}
+                to="/login"
+              >
                 Logout
-              </Link>
+              </NavLink>
             </li>
           )}
         </ul>

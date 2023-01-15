@@ -1,35 +1,24 @@
 .width {
-  width: 400px;
-  height: 300px;
+  width: 28vw;
+  min-width: 400px;
+  margin: 1rem;
 }
-
-.card {
-  /* background-image: linear-gradient(to right, #eee5f1, #f6f1e2); */
-  background-image: linear-gradient(to bottom right, #f5fffe, #defaf7);
-  margin: 10px;
-  padding: 5px;
-  border: 3px solid darkblue;
-}
-
-.deleteButton {
-  margin: 0;
-  padding: 5px 149px 5px 149px;
-}
-.updateButton {
-  margin: 0;
-  margin-bottom: 5px;
-  margin-top: 5px;
-  padding: 5px 145px 5px 145px;
+.color {
+  color: aqua;
 }
 
 .productDescription {
-  height: 100px;
-  background-color: whitesmoke;
-  padding: 10px;
-  border-radius: 8px;
+  height: 8rem;
   overflow-y: scroll;
+  margin-bottom: 1rem;
 }
 .productDescription::-webkit-scrollbar {
   background-color: transparent;
   width: 0px;
 }
+
+.actionContainer {
+  display: flex;
+  justify-content: space-around;
+}
+

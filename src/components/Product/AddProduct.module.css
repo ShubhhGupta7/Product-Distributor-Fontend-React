@@ -1,67 +1,85 @@
-body {
-  font-size: 18px;
-}
 .container {
-  height: 125vh;
-  margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: linear-gradient(to bottom right, #ff3b00, #5252c4);
+  background-image: linear-gradient(to bottom right, #b6ffe3, #5252c4);
+  height: 100vh;
 }
 .logo {
-  margin-bottom: 50px;
-  font-family: cursive;
+  margin-bottom: 2rem;
 }
 .form {
+  color: black;
+  background-color: #846dd7;
+  box-shadow: 1px 1px 8px 0px grey;
   display: inline-block;
   padding: 50px 50px;
-  background-color: #b7abe3;
   border-radius: 16px;
+  position: relative;
 }
-label {
+.label {
   display: inline-block;
   font-weight: bold;
 }
 .labelWidth {
-  width: 180px;
+  width: 12rem;
 }
 .inputContainer {
   margin: 30px 20px;
   display: flex;
   align-items: center;
 }
-button {
-  padding: 5px 160px;
-  border: none;
-  margin: 5px 20px;
-  border-radius: 4px;
-  font-weight: bold;
-  background-color: #6060ff;
-  color: white;
-}
-input {
+.input {
   background-color: whitesmoke;
-  border: none;
+  font-weight: bolder;
   padding: 5px;
   border-radius: 4px;
+  height: 2.5rem;
+  width: 15rem;
 }
-input:focus {
+.input:hover {
+  background-color: lavenderblush;
+}
+.input:focus {
   outline: none;
   border-bottom: 3px solid #6060ff;
 }
-.reset {
-  padding: 5px 172px;
+.button {
+  background-color: transparent;
+  color: black;
+  font-weight: bolder;
+  font-size: 1.3rem;
+  border-radius: 0.4rem;
+  height: 3rem;
+  width: 18vw;
+  min-width: 200px;
+  border: 0.2rem solid black;
+  transition: all linear 0.5s;
+  display: block;
 }
-button:hover {
-  background-color: darkorchid;
-  color: whitesmoke;
-  box-shadow: 0px 0px 16px 1px white;
+.button:hover {
+  background-color: black;
+  color: white;
 }
 .textarea {
-  padding: 0px 13px 0px 13px;
+  height: 7rem;
 }
-.addButton {
-  display: inline-block;
-  width: 400px;
+.textarea::-webkit-scrollbar {
+  background-color: transparent;
+  width: 0px;
+}
+
+.cancel {
+  position: absolute;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 4px solid black;
+  top: 1.5rem;
+  right: 1.4rem;
+  font-weight: bolder;
+  transition: all 300ms;
+}
+.cancel:hover {
+  color: white;
+  background-color: black;
 }

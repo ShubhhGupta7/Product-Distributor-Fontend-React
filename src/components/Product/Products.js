@@ -2,11 +2,12 @@ import Product from "./Product";
 import classes from "./Products.module.css";
 import { getProducts } from "../../store";
 import { useState } from "react";
-const products = getProducts();
 
 function Products() {
   // State for Updating Products Everytime a Product Got's Deleted
   const [productDeleted, setProductDeleted] = useState(0);
+
+  const products = getProducts();
 
   return (
     <ul className={`d-flex justify-content-around flex-wrap ${classes.list}`}>

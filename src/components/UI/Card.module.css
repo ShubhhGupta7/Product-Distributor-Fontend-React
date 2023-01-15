@@ -1,0 +1,11 @@
+.card {
+  background-color: #312e2e;
+  padding: .5rem;
+  border-radius: 0.8rem;
+  box-shadow: 1px 1px 8px 0px whitesmoke;
+  transition: all ease-in 300ms;
+}
+.card:hover {
+  background-color: #022b33;
+  color: #aae8f5;
+}

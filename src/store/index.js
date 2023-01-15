@@ -211,16 +211,15 @@ export const addToCart = (productId, quantity) => {
 
   // Finding that item
   let isProduct = false;
-  for(let item of cart) {
-    if(item.productId === productId) {
+  for (let item of cart) {
+    if (item.productId === productId) {
       item.quantity += quantity;
       isProduct = true;
       break;
     }
-   }
+  }
 
-
-  if(!isProduct) cart.push(cartItem);
+  if (!isProduct) cart.push(cartItem);
   grandTotal += cartItem.total;
   itemCount += quantity;
 };
@@ -232,4 +231,4 @@ export const grandTotalAmount = () => {
 };
 export const getTotalItems = () => {
   return itemCount;
-}
+};

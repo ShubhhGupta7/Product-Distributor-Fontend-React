@@ -1,5 +1,5 @@
 import Distributors from "../components/Distributor/Distributors";
-import NavBar from "../components/NavBar";
+import NavBar from "../components/UI/NavBar";
 function DistributorList() {
   return (
     <section>

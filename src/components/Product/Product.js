@@ -2,8 +2,9 @@ import classes from "./Product.module.css";
 import { isAdmin } from "../../auth";
 import { useNavigate } from "react-router-dom";
 import { deleteProduct } from "../../store";
-import CartInput from "../CartInput";
+import CartInput from "../Cart/CartInput";
 import { toast } from "react-toastify";
+import Card from "../UI/Card";
 
 function Product(props) {
   const navigate = useNavigate();
@@ -21,36 +22,38 @@ function Product(props) {
   };
 
   return (
-    <li className={`card ${classes.width} ${classes.card}`}>
-      <div className="card-body">
-        <h3 className="card-title">{props.productName}</h3>
-        <strong>
-          <h5 className="card-subtitle mb-2 text-primary">
-            Price: &nbsp;&#8377;{props.productPrice}
-          </h5>
-          <p className={`card-text text-muted ${classes.productDescription}`}>
-            {props.productDescription}
-          </p>
-        </strong>
+    <li className={`${classes.width}`}>
+      <Card >
+        <div className="card-body">
+          <h3 className="card-title">{props.productName}</h3>
+          <strong>
+            <h5 className={`card-subtitle mb-2 ${classes.color}`}>
+              Price: &nbsp;&#8377;{props.productPrice}
+            </h5>
+            <p className={`card-text ${classes.productDescription}`}>
+              {props.productDescription}
+            </p>
+          </strong>
 
-        {/* Update and Delete Buttons */}
-        {isAdmin() && (
-          <div>
-            <button className={classes.updateButton} onClick={updateProduct}>
-              Update
-            </button>
-            <button
-              className={classes.deleteButton}
-              onClick={deleteProductHelper}
-            >
-              Delete
-            </button>
-          </div>
-        )}
+          {/* Update and Delete Buttons */}
+          {isAdmin() && (
+            <div className={classes.actionContainer}>
+              <button className="btn btn-outline-light btn-lg btn-block" onClick={updateProduct}>
+                Update
+              </button>
+              <button
+                className="btn btn-outline-light btn-lg"
+                onClick={deleteProductHelper}
+              >
+                Delete
+              </button>
+            </div>
+          )}
 
-        {/* Add to Cart Component */}
-        {!isAdmin() && <CartInput productId={props.productId} />}
-      </div>
+          {/* Add to Cart Component */}
+          {!isAdmin() && <CartInput productId={props.productId} />}
+        </div>
+      </Card>
     </li>
   );
 }

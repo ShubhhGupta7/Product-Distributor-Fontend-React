@@ -21,6 +21,21 @@ function UpdateProduct(props) {
     const enteredProductDesciption =
       productDescriptionInputHandler.current.value;
 
+    let errorMessage = null;
+    if (
+      enteredProductName === "" ||
+      enteredProductPrice === "" ||
+      enteredProductDesciption === ""
+    ) {
+      errorMessage = "Form fields cannot be empty";
+    } else if (enteredProductDesciption.length > 120) {
+      errorMessage = "Description must be concise";
+    }
+    if (errorMessage) {
+      toast.error(errorMessage);
+      return;
+    }
+
     const productInformation = {
       productName: enteredProductName,
       productPrice: enteredProductPrice,
@@ -42,12 +57,16 @@ function UpdateProduct(props) {
 
         {/* Update Name Input */}
         <div className={classes.inputContainer}>
-          <label className={classes.labelWidth} htmlFor="productName">
+          <label
+            className={`${classes.labelWidth} ${classes.label}`}
+            htmlFor="productName"
+          >
             Product Name
           </label>
           <input
             type="text"
             id="productName"
+            className={classes.input}
             ref={productNameInputHandler}
             defaultValue={product.productName}
           />
@@ -55,12 +74,16 @@ function UpdateProduct(props) {
 
         {/* Update Product Price */}
         <div className={classes.inputContainer}>
-          <label className={classes.labelWidth} htmlFor="productPrice">
+          <label
+            className={`${classes.labelWidth} ${classes.label}`}
+            htmlFor="productPrice"
+          >
             Product Price
           </label>
           <input
             type="number"
             id="productPrice"
+            className={classes.input}
             ref={productPriceInputHandler}
             defaultValue={product.productPrice}
           />
@@ -68,18 +91,33 @@ function UpdateProduct(props) {
 
         {/* Update Product Description */}
         <div className={classes.inputContainer}>
-          <label className={classes.labelWidth} htmlFor="productDescription">
+          <label
+            className={`${classes.labelWidth} ${classes.label}`}
+            htmlFor="productDescription"
+          >
             Product Description
           </label>
           <textarea
             id="productDescription"
             ref={productDescriptionInputHandler}
-            className={classes.textarea}
+            className={`${classes.textarea} ${classes.input}`}
             defaultValue={product.productDescription}
           />
         </div>
 
-        <button className={classes.updateButton}>Update</button>
+        <center>
+          <button className={classes.button}>Update Product</button>
+        </center>
+
+        <button
+          type="button"
+          className={classes.cancel}
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          X
+        </button>
       </form>
     </div>
   );

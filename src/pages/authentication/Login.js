@@ -1,9 +1,8 @@
-import { createRef } from "react";
+import { createRef, useEffect } from "react";
 import classes from "./Login.module.css";
 import { useState } from "react";
-import { login } from "../../Services/user-services";
 import { toast } from "react-toastify";
-import { doLogin } from "../../auth";
+import { doLogin, isLoggedIn } from "../../auth";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
@@ -21,11 +20,21 @@ function Login() {
   };
   const [loginCredentials, setCredentials] = useState(defaultState);
 
+  useEffect(() => {
+    if (isLoggedIn()) navigate("/user/products");
+  }, []);
+
   // Handler for  login form
   function loginInputFormHandler(event) {
     event.preventDefault();
     const enteredEmail = emailInputHandler.current.value;
     const enteredPassword = passwordInputHandler.current.value;
+
+    // Email Validation
+    if (!enteredEmail.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
+      toast.error("Invalid Email!");
+      return;
+    }
 
     const credentials = {
       email: enteredEmail,
@@ -76,16 +85,20 @@ function Login() {
     <div className={classes.container}>
       <form className={classes.form} onSubmit={loginInputFormHandler}>
         <center>
-          <h1 className={classes.logo}> &anjeevni</h1>
+          <h1 className={classes.logo}> SignIn</h1>
         </center>
 
         {/* Input Email */}
         <div className={classes.inputContainer}>
-          <label className={classes.labelWidth} htmlFor="email">
+          <label
+            className={`${classes.labelWidth} ${classes.label}`}
+            htmlFor="email"
+          >
             Email
           </label>
           <input
-            type="email"
+            type="text"
+            className={classes.input}
             id="email"
             ref={emailInputHandler}
             required
@@ -95,11 +108,15 @@ function Login() {
 
         {/* Input Password */}
         <div className={classes.inputContainer}>
-          <label className={classes.labelWidth} htmlFor="password">
+          <label
+            className={`${classes.labelWidth} ${classes.label}`}
+            htmlFor="password"
+          >
             Password
           </label>
           <input
             type="password"
+            className={classes.input}
             id="password"
             ref={passwordInputHandler}
             required
@@ -108,26 +125,36 @@ function Login() {
         </div>
 
         {/* Buttons for Submission and Reset */}
-        <div>
-          <button>Login</button>
-        </div>
-        <div>
+        <div className={classes.actionContainer}>
+          <button className={`${classes.button}`}>Login</button>
           <button
-            className={classes.reset}
+            className={`${classes.button}`}
             type="button"
             onClick={resetFormHandler}
           >
             Reset
           </button>
+        </div>
 
-          {/* To Register */}
+        {/* To Register */}
+        <center>
           <div className={classes.registerPage}>
             <h6>
               Want to Register as Distributor?
               <Link to="/register"> Register</Link>
             </h6>
           </div>
-        </div>
+        </center>
+
+        <button
+          type="button"
+          className={classes.cancel}
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          X
+        </button>
       </form>
     </div>
   );

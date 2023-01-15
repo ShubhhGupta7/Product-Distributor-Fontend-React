@@ -1,0 +1,19 @@
+.cartInputContainer {
+  display: flex;
+  justify-content: space-around;
+}
+.button {
+  display: block;
+}
+.addQuantity {
+  height: 3rem;
+  border-radius: 0.6rem;
+  width: 8rem;
+  border: 2px solid white;
+  display: block;
+  font-weight: bolder;
+  padding: 0.5rem;
+}
+.addQuantity::-webkit-scrollbar {
+  background-color: transparent;
+}

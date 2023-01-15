@@ -1,48 +1,55 @@
 .container {
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  height: 125vh;
-  background-color: black;
-}
-
-.brandName {
-  height: 75vh;
-  display: flex;
+  min-height: 100vh;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
-  color: black;
-  font-size: 6vw;
-  font-family: cursive;
-  color: #cc86ff;
-  transition: all 0.5s;
-  box-shadow: 0px 0px 100px 10px #cc86ff;
+  background-color: white;
+  flex-wrap: wrap;
 }
-.brandName:hover {
-  font-size: 8vw;
-  color: #6060ff;
-  text-shadow: 0.1vw 0.1vw #b7abe3;
-  box-shadow: 0px 0px 600px 100px #6060ff;
+.container div {
+  margin: 1.5rem;
+}
+.image {
+  min-width: 450px;
+  width: 35vw;
+  height: 80vh;
+}
+.image img {
+  height: 100%;
+  width: 100%;
 }
 .linkContainer {
-  color: whitesmoke;
-  height: 50vh;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  flex-direction: column;
   justify-content: space-around;
-}
-.linkContainer div {
-  min-width: 500px;
+  align-items: center;
+  background-color: white;
+  color: grey;
+  height: 70vh;
+  width: 30vw;
+  min-width: 450px;
+  padding: 3rem;
+  border-radius: 0.8rem;
+  box-shadow: 1px 1px 2rem 0px lightgrey;
+  transition: all ease-in-out 300ms;
 }
 .link {
   text-decoration: none;
-  transition: all 0.5s;
-  font-size: 2rem;
-  color: #b7abe3;
+  height: 10rem;
+  color: green;
+  font-size: 2.5rem;
+  font-family: math;
+  transition: all ease-in-out 300ms;
 }
 .link:hover {
-  color: #6060ff;
-  text-shadow: 0.1vw 0.1vw #b7abe3;
-  font-size: 4rem;
+  color: darkgreen;
+  font-size: 3rem;
+}
+.links {
+  height: 6rem;
+}
+.brand {
+  color: darkgreen;
+  font-size: 3rem;
+  text-decoration: none;
 }
